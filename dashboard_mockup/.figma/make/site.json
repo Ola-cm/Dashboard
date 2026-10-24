@@ -1,0 +1,10 @@
+{
+  "description": "Connects job seekers and recruiters through certified profiles with video presentations and interactive tools for streamlined recruitment and candidate visibility.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

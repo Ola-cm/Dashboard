@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Every color below is an "R G B" triplet (no rgb()/commas) so Tailwind can compose it with its
+   own alpha modifiers, e.g. bg-brown-600/10 -> rgb(var(--color-brown-600) / 0.1). Redefining the
+   same variable names under [data-theme="dark"] is what re-themes the whole app — see
+   tailwind.config.js and the Theme section of ARCHITECTURE.md. */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  --color-cream: 245 239 230;
+  --color-cream-dark: 237 228 214;
+  --color-card: 232 220 200;
+  --color-card-2: 216 195 165;
+
+  --color-brown-50: 245 239 230;
+  --color-brown-100: 237 228 214;
+  --color-brown-200: 216 195 165;
+  --color-brown-300: 196 144 96;
+  --color-brown-400: 169 112 64;
+  --color-brown-500: 139 90 43;
+  --color-brown-600: 107 68 35;
+  --color-brown-700: 79 53 34;
+  --color-brown-800: 59 42 30;
+  --color-brown-900: 42 29 20;
+
+  --color-terracotta: 196 98 45;
+  --color-terracotta-light: 224 128 80;
+  --color-terracotta-pale: 242 221 211;
+
+  --color-olive: 122 140 92;
+  --color-olive-light: 165 181 128;
+  --color-olive-pale: 221 229 208;
+
+  --glass-highlight: rgba(255, 255, 255, 0.5);
+  --bg-overlay-start: rgba(245, 239, 230, 0.08);
+  --bg-overlay-end: rgba(245, 239, 230, 0.22);
+}
+
+:root[data-theme='dark'] {
+  /* Same warm hue family as the light theme, with the lightness ramp flipped — a "coffee and
+     copper" dark mode rather than a generic gray one, so it still feels like the same brand and
+     still pairs well with the bronze background photo. */
+  --color-cream: 23 17 11;
+  --color-cream-dark: 30 22 15;
+  --color-card: 42 32 22;
+  --color-card-2: 58 42 28;
+
+  --color-brown-50: 26 19 13;
+  --color-brown-100: 36 26 18;
+  --color-brown-200: 58 42 28;
+  --color-brown-300: 92 69 48;
+  --color-brown-400: 138 107 72;
+  --color-brown-500: 176 141 92;
+  --color-brown-600: 216 168 104;
+  --color-brown-700: 232 203 160;
+  --color-brown-800: 243 227 200;
+  --color-brown-900: 250 243 230;
+
+  --color-terracotta: 224 140 96;
+  --color-terracotta-light: 232 165 130;
+  --color-terracotta-pale: 58 30 22;
+
+  --color-olive: 165 181 128;
+  --color-olive-light: 185 199 152;
+  --color-olive-pale: 30 38 22;
+
+  --glass-highlight: rgba(255, 255, 255, 0.08);
+  --bg-overlay-start: rgba(15, 11, 7, 0.35);
+  --bg-overlay-end: rgba(15, 11, 7, 0.65);
+}
+
+:root[data-theme='spider'] {
+  /* Dark theme built from spider_theme.jpg — black web on deep crimson. Same inverted ramp
+     direction as the dark theme (low numbers = dark, high = light) but a red hue family instead
+     of coffee/copper, so every existing brown-* class still reads correctly with zero changes. */
+  --color-cream: 16 9 10;
+  --color-cream-dark: 22 12 13;
+  --color-card: 36 14 17;
+  --color-card-2: 52 18 22;
+
+  --color-brown-50: 18 9 10;
+  --color-brown-100: 28 13 15;
+  --color-brown-200: 52 18 22;
+  --color-brown-300: 90 26 30;
+  --color-brown-400: 138 28 34;
+  --color-brown-500: 178 38 44;
+  --color-brown-600: 214 58 58;
+  --color-brown-700: 232 118 112;
+  --color-brown-800: 245 188 182;
+  --color-brown-900: 252 232 228;
+
+  --color-terracotta: 255 99 71;
+  --color-terracotta-light: 255 140 120;
+  --color-terracotta-pale: 70 22 18;
+
+  --color-olive: 120 200 140;
+  --color-olive-light: 158 218 172;
+  --color-olive-pale: 18 40 24;
+
+  --glass-highlight: rgba(255, 255, 255, 0.07);
+  --bg-overlay-start: rgba(10, 4, 6, 0.45);
+  --bg-overlay-end: rgba(10, 4, 6, 0.78);
+}
+
+:root[data-theme='cherry'] {
+  /* Light theme built from cherry_theme.jpg — blush pink with deep cherry-red accents. Same
+     ramp direction as the light theme (low numbers = light, high = dark) with a pink/rose hue
+     family instead of cream/brown. */
+  --color-cream: 253 240 242;
+  --color-cream-dark: 249 226 230;
+  --color-card: 246 210 216;
+  --color-card-2: 236 182 192;
+
+  --color-brown-50: 253 240 242;
+  --color-brown-100: 249 226 230;
+  --color-brown-200: 236 182 192;
+  --color-brown-300: 224 140 155;
+  --color-brown-400: 202 90 110;
+  --color-brown-500: 178 55 78;
+  --color-brown-600: 150 30 55;
+  --color-brown-700: 110 24 44;
+  --color-brown-800: 74 20 34;
+  --color-brown-900: 48 14 22;
+
+  --color-terracotta: 214 60 70;
+  --color-terracotta-light: 232 110 115;
+  --color-terracotta-pale: 250 222 222;
+
+  --color-olive: 110 150 100;
+  --color-olive-light: 150 180 130;
+  --color-olive-pale: 226 236 214;
+
+  --glass-highlight: rgba(255, 255, 255, 0.55);
+  --bg-overlay-start: rgba(253, 240, 242, 0.15);
+  --bg-overlay-end: rgba(253, 240, 242, 0.4);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'DM Sans', Arial, sans-serif;
+  background-color: rgb(var(--color-cream));
+  background-image:
+    linear-gradient(180deg, var(--bg-overlay-start), var(--bg-overlay-end)),
+    url('./assets/dashboard-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  transition:
+    background-color 0.2s ease-out,
+    color 0.2s ease-out;
+}
+
+/* iOS Safari renders `fixed` backgrounds zoomed and janky — let it scroll on small screens. */
+@media (max-width: 1023px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+/* light/dark share the bronze photo (only the overlay tint changes above); spider and cherry
+   each bring their own background image instead. */
+:root[data-theme='spider'] body {
+  background-image:
+    linear-gradient(180deg, var(--bg-overlay-start), var(--bg-overlay-end)),
+    url('./assets/spider-theme.jpg');
+}
+
+:root[data-theme='cherry'] body {
+  background-image:
+    linear-gradient(180deg, var(--bg-overlay-start), var(--bg-overlay-end)),
+    url('./assets/cherry-theme.jpg');
+}
+
+/* A wallpaper uploaded from the Theme page replaces only the photo — the active theme's colors
+   and overlay tint still apply on top of it. Must stay after the per-theme rules above: same
+   specificity, so the later rule wins. */
+:root[data-wallpaper='custom'] body {
+  background-image:
+    linear-gradient(180deg, var(--bg-overlay-start), var(--bg-overlay-end)), var(--custom-wallpaper);
+}
+
+/* Frosted-glass surfaces — the warm background photo shows through the blur. */
+.glass {
+  background: rgb(var(--color-card) / 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-highlight);
+}
+
+.widget-card {
+  background: rgb(var(--color-card) / 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-highlight);
+  border-radius: 16px;
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+
+.widget-card:hover {
+  box-shadow: 0 8px 32px rgb(var(--color-brown-600) / 0.15);
+  transform: translateY(-1px);
+}
+
+/* Floating sidebar and top bar, in the translucent style of iOS widgets: mostly see-through, a
+   strong blur with boosted saturation so whatever is behind it stays vivid instead of turning
+   muddy, and a thin highlight along the top edge. Built on the theme variables, so it follows
+   every theme. Corner radius is left to each element (Tailwind `rounded-*`). */
+.floating-glass {
+  background: rgb(var(--color-cream) / 0.48);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid var(--glass-highlight);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    0 12px 40px rgb(0 0 0 / 0.18);
+}
+
+.topbar {
+  background: rgb(var(--color-cream) / 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgb(var(--color-card-2) / 0.6);
+}
+
+/* Every widget's config form (weather/github/rss/monitoring/maps/youtube — ~30 files)
+   uses the same `bg-white/60` input background and `border-white/80` modal border. Overriding
+   those two exact utility classes here re-themes every one of them for every dark-background
+   theme without touching each file individually. Cherry is light like the default theme, so it
+   doesn't need this — raw white already reads fine against a light pink card. */
+:root[data-theme='dark'] .bg-white\/60,
+:root[data-theme='spider'] .bg-white\/60 {
+  background-color: rgb(var(--color-brown-100) / 0.5);
+}
+
+:root[data-theme='dark'] .border-white\/80,
+:root[data-theme='spider'] .border-white\/80 {
+  border-color: rgb(var(--color-card-2) / 0.6);
+}
